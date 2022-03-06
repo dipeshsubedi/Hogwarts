@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hogwarts Student List</title>
+  </head>
+  <body>
+    <h1>Hogwarts students list class 1991</h1>
+
+    <h3>Filter students:</h3>
+
+    <section id="filter_interface">
+      <article class="dropdowns">
+        <div class="dropdown_house">
+          <button class="dropbtn_house">Filter by house</button>
+          <div class="dropdown-content">
+            <button
+              class="filter_house"
+              data-action="filter"
+              data-filter="Gryffindor"
+            >
+              Gryffindor
+            </button>
+            <button
+              class="filter_house"
+              data-action="filter"
+              data-filter="Slytherin"
+            >
+              Slytherin
+            </button>
+            <button
+              class="filter_house"
+              data-action="filter"
+              data-filter="Hufflepuff"
+            >
+              Hufflepuff
+            </button>
+            <button
+              class="filter_house"
+              data-action="filter"
+              data-filter="Ravenclaw"
+            >
+              Ravenclaw
+            </button>
+            <button
+              class="filter_house"
+              data-action="filter"
+              data-filter="All houses"
+            >
+              All houses
+            </button>
+          </div>
+        </div>
+
+        <div class="dropdown_status">
+          <button class="dropbtn_status">Filter by student status</button>
+          <div class="dropdown-content_status">
+            <button
+              class="filter_status"
+              data-action="filter"
+              data-filter="Not expelled"
+            >
+              Not expelled
+            </button>
+            <button
+              class="filter_status"
+              data-action="filter"
+              data-filter="Expelled"
+            >
+              Expelled
+            </button>
+            <button
+              class="filter_status"
+              data-action="filter"
+              data-filter="Prefect"
+            >
+              Prefects
+            </button>
+            <button
+              class="filter_status"
+              data-action="filter"
+              data-filter="Inquisitorial"
+            >
+              Part of inquisitorial squad
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Search.."
+          name="search"
+          id="search_input"
+        />
+        <button id="clear_btn">X</button>
+      </div>
+    </section>
+
+    <article class="numbers">
+      <h5 id="total_displaying"></h5>
+      <h5 id="expelled">0 student(s) have been expelled</h5>
+    </article>
+
+    <table id="students_table">
+      <thead>
+        <tr id="sorting">
+          <th
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="firstName"
+          >
+            Firstname
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="lastName">
+            Lastname
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="house">
+            House
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="gender">
+            Gender
+          </th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="prefect">
+            Prefect
+          </th>
+          <th
+            data-action="sort"
+            data-sort-direction="asc"
+            data-sort="inquisitorial "
+          >
+            Inquisitorial
+          </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="error_empty"><h2></h2></div>
+
+    <template id="student">
+      <tr>
+        <td data-field="firstname">Firstname</td>
+        <td data-field="lastname">Lastname</td>
+        <td data-field="house">House</td>
+        <td data-field="gender">Gender</td>
+        <td data-field="prefect">⭐</td>
+        <td data-field="inquisitorial">🔴</td>
+      </tr>
+    </template>
+
+    <div class="pop_up">
+      <div class="popup_content">
+        <span class="close">&times;</span>
+        <section id="student_popup_info">
+          <img src="" alt="" />
+          <div class="info_section">
+            <div class="flex_popup">
+              <h5>Firstname:</h5>
+              <h5 id="firstname"></h5>
+            </div>
+            <div class="flex_popup">
+              <h5>Middlename:</h5>
+              <h5 id="middlename"></h5>
+            </div>
+            <div class="flex_popup">
+              <h5>Nickname:</h5>
+              <h5 id="nickname"></h5>
+            </div>
+            <div class="flex_popup_last">
+              <h5>Lastname:</h5>
+              <h5 id="lastname"></h5>
+            </div>
+            <article class="house_section">
+              <div class="house_text">
+                <h5>House:</h5>
+                <h5 id="house"></h5>
+              </div>
+            </article>
+            <div class="blood_text">
+              <h5>Blood-status:</h5>
+              <h5 id="blood"></h5>
+            </div>
+          </div>
+        </section>
+        <div class="student_status">
+          <h4>Student status:</h4>
+          <div class="flex_popup">
+            <p id="expel_stat">Expelled</p>
+            <button id="is_exp">Expelled</button>
+          </div>
+          <div class="flex_popup">
+            <p id="prefect_stat">Prefect</p>
+            <button id="is_pre">perfect</button>
+          </div>
+          <div class="flex_popup">
+            <p id="squad_stat">Inquisitor</p>
+            <button id="is_ins">inquis</button>
+          </div>
+        </div>
+        <button id="expel_btn">Expel student</button>
+      </div>
+    </div>
+
+    <div id="messeage_board" class="cta bounce hide">
+      <p id="messeage"></p>
+    </div>
+
+    <div class="pop_up_expel">
+      <div class="popup_content">
+        <span class="close_expel">&times;</span>
+        <h2>Error!- something is wrong</h2>
+        <h4>Could not expel student</h4>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

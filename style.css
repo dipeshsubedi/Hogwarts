@@ -1,0 +1,582 @@
+/*   ............  General styling ....... */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #cac3c366;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  /*   ............  cards styling ....... */
+  
+  /* #house_cards {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  } */
+  
+  /* .card {
+    padding: 10px;
+    /* border: 1px solid black; */
+    /* border-radius: 10px;
+    height: 15rem;
+    background-color: #cecdb7;
+  } */ */
+  
+  /* .card img {
+    max-width: 6rem;
+    max-height: 6rem;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  */
+  #gryff_total,
+  #slyth_total,
+  #huff_total,
+  #raven_total {
+    text-align: center;
+  } 
+  
+  /*    ........... List information styling ........... */
+  
+  .numbers {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #expelled {
+    color: #e75c57;
+    font-size: 1.1rem;
+  }
+  
+  #total_not_expelled {
+    color: #02ff9a;
+    font-size: 1.1rem;
+  }
+  
+  #total_displaying {
+    font-size: 1.1rem;
+  }
+  /*   ............  table styling ....... */
+  
+  .table_wrapper {
+    display: block;
+    overflow: scroll;
+    white-space: nowrap;
+  }
+  
+  [data-field="inquisitorial"] {
+    text-align: center;
+    cursor: pointer;
+    width: 20px;
+  }
+  
+  [data-field="prefect"] {
+    text-align: center;
+    cursor: pointer;
+    width: 20px;
+  }
+  
+  #students_table tr:nth-child(even) {
+   
+   
+   
+   
+    background-color: #f7f5f5;
+  }
+  
+  #students_table tr:hover {
+    background-color: rgb(183, 223, 233);
+  }
+  
+  #sorting th.sortby[data-sort-direction="asc"]::after {
+    content: "▴";
+  }
+  
+  #sorting th.sortby[data-sort-direction="desc"]::after {
+    content: "▾";
+  }
+  
+  #sorting th.sortby[data-sort-direction="asc"]::after,
+  #sorting th.sortby[data-sort-direction="desc"]::after {
+    margin-left: 5px;
+  }
+  
+  #sorting th.sortby[data-sort-direction="asc"],
+  #sorting th.sortby[data-sort-direction="desc"] {
+    background-color: black;
+  }
+  
+  #students_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    
+    
+    text-align: left;
+    background-color: #fcc276;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #students_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: -1rem;
+  }
+  
+  #students_table td,
+  #students_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #students_table tr {
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .student_status button {
+    padding: 10px;
+    height: 15px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /*   ............  Pop up close (X) styling ....... */
+  
+  .close,
+  .close_expel {
+    color: #aaaaaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 10px 0 0;
+  }
+  
+  .close:hover {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .close_expel:hover {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /*   ............  Pop up styling ....... */
+  
+  .pop_up,
+  .pop_up_expel {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(13, 12, 12, 0.64);
+  }
+  
+  .popup_content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -80%);
+    background-color: #f1c8c8;
+    border: 1px solid rgb(8, 8, 8);
+    width: 550px;
+    height: 350px;
+    box-shadow: 10px 7px 26px 7px rgba(0, 0, 0, 0.46);
+  }
+  
+  .popup_content img {
+    padding: 10px;
+    height: 11rem;
+    width: 11rem;
+  }
+  
+  #student_popup_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  
+  #expel_btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    cursor: pointer;
+    background-color: rgb(238, 29, 29);
+    outline: none;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  .info_section {
+    margin-top: 0.5rem;
+  }
+  
+  .info_section h4 {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .student_status {
+    padding: 10px;
+    position: relative;
+    bottom: 6rem;
+  }
+  
+  .student_status h4 {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+  .student_status p {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  #student_popup_info h5 {
+    margin: 0.3rem;
+    font-size: 1.1rem;
+  }
+  
+  .student_status p {
+    font-size: 1.1rem;
+  }
+  
+  .flex_popup {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .flex_popup_last {
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  #house {
+    padding-bottom: 1rem;
+    grid-column: 1/2;
+  }
+  
+  .check {
+    margin-bottom: 10px;
+  }
+  
+  .house_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  #house_crest {
+    max-width: 6rem;
+    max-height: 7rem;
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+  
+  .house_text {
+    padding: 10px 0 0 0;
+  }
+  
+  .pop_up_expel h2 {
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+  }
+  
+  .pop_up_expel h4 {
+    text-align: center;
+    color: red;
+    font-size: 1.5rem;
+  }
+  /* ............  Dropdown ................ */
+  .dropdown_menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn_status,
+  .dropbtn_house {
+    cursor: pointer;
+    background-color: white;
+    outline: none;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 114px;
+    z-index: 1;
+    text-align: left;
+  }
+  
+  .dropdown-content_status {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 160px;
+    z-index: 1;
+    text-align: left;
+  }
+  
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter_house,
+  .filter_status {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .filter_house:hover {
+    background-color: rgba(201, 193, 193, 0.568);
+  }
+  
+  .filter_status:hover {
+    background-color: rgba(201, 193, 193, 0.568);
+  }
+  /* ............  Filter Interface ................ */
+  
+  #filter_interface {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dropdowns {
+    gap: 1rem;
+    display: flex;
+  }
+  
+  #filter_btn {
+    margin-left: 1.5rem;
+  }
+  
+  .search {
+    margin-top: 1.1rem;
+  }
+  
+  /******** Feedback **********/
+  
+  .cta {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    width: 210px;
+    height: 86px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    transition: all 0.5s;
+    background-color: #4992a3;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-right: 1rem;
+    /* box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 0.61); */
+    text-align: center;
+    display: block;
+    padding-top: 0rem;
+  }
+  
+  .hide {
+    opacity: 0;
+    right: -100%;
+  }
+  
+  #messeage {
+    margin: 0;
+    padding-top: 1rem;
+  }
+  
+  #error_empty h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+  }
+  
+  /* ............  Media@ ................ */
+  
+  @media (max-width: 800px) {
+    #house_cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    #not_expelled {
+      font-size: 1rem;
+    }
+    #total_displaying {
+      font-size: 1rem;
+    }
+    #total_expelled {
+      font-size: 1rem;
+    }
+  
+    .card {
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #house_cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    #filter_interface {
+      display: flex;
+      margin-bottom: 2rem;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 5%;
+    }
+  
+    .search {
+      margin-top: 1.1rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  
+    .numbers {
+      display: inherit;
+      font-size: 0.8rem;
+    }
+  
+    #not_expelled {
+      font-size: 0.9rem;
+    }
+    #total_displaying {
+      font-size: 0.9rem;
+    }
+    #total_expelled {
+      font-size: 0.9rem;
+    }
+  
+    h3 {
+      text-align: center;
+    }
+  
+    .dropdowns {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .card h3 {
+      font-size: 1rem;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+    }
+  
+    /* ............  popUp ................ */
+    .popup_content {
+      width: 390px;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    #house_cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .card {
+      padding: 5px;
+      height: 12rem;
+    }
+  
+    .center img {
+      max-width: 4rem;
+      max-height: 4rem;
+    }
+  
+    #gryff_total,
+    #slyth_total,
+    #huff_total,
+    #raven_total {
+      font-size: 1.1rem;
+    }
+  
+    /* ............  popUp ................ */
+  
+    .popup_content {
+      transform: translate(-50%, -50%);
+      height: 420px;
+      width: 300px;
+    }
+  
+    .popup_content img {
+      padding: 10px;
+      height: 7rem;
+      width: 7rem;
+    }
+  
+    .info_section {
+      margin-right: 6rem;
+      margin-top: 1rem;
+    }
+  
+    #student_popup_info h5 {
+      margin: 0.3rem;
+      font-size: 1rem;
+    }
+  
+    .student_status {
+      padding: 10px;
+      position: relative;
+      bottom: 4rem;
+      left: 5rem;
+    }
+  
+    .blood_text {
+      top: -6.5rem;
+      position: relative;
+      left: -7.5rem;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    #house_cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    #total_not_expelled {
+      font-size: 0.7rem;
+    }
+    #total_displaying {
+      font-size: 0.7rem;
+    }
+    #total_expelled {
+      font-size: 0.7rem;
+    }
+  }
